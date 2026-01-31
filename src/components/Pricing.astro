@@ -1,0 +1,91 @@
+---
+const plans = [
+  {
+    name: 'Emprendedor / MYPE',
+    price: 'S/ 250',
+    description: 'Enfoque en cumplimiento tributario mensual y libros electrónicos.',
+    features: [
+      'Declaración mensual de impuestos (IVA/Renta)',
+      'Registro de compras y ventas electrónico',
+      'Asesoría en emisión de facturación electrónica',
+      'Preparación de impuestos básicos'
+    ],
+    highlight: false,
+    cta: 'Empezar ahora'
+  },
+  {
+    name: 'Gestión Integral',
+    price: 'S/ 600',
+    description: 'Para empresas que requieren análisis de estados financieros y planillas.',
+    features: [
+      'Todo lo del Plan Emprendedor',
+      'Análisis de Estados Financieros trimestrales',
+      'Gestión de PLAME (hasta 5 trabajadores)',
+      'T-Registro y beneficios sociales',
+      'Asesoría técnica personalizada'
+    ],
+    highlight: true,
+    cta: 'Elegir Plan'
+  },
+  {
+    name: 'Corporativo / Full',
+    price: 'Cotizar',
+    description: 'Contabilidad completa con análisis profundo y auditoría preventiva.',
+    features: [
+      'Todo lo del Plan Gestión Integral',
+      'Armado y análisis de EEFF mensual',
+      'Liquidación de impuestos compleja',
+      'Planillas (más de 10 trabajadores)',
+      'Auditoría preventiva ante SUNAT',
+      'Consultoría estratégica ilimitada'
+    ],
+    highlight: false,
+    cta: 'Contactar Ventas'
+  }
+];
+---
+
+<section id="planes" class="py-24 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Planes a tu medida</h2>
+      <p class="text-slate-600 text-lg">Estructuras de costos transparentes basadas en el nivel de complejidad operativa.</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {plans.map(plan => (
+        <div class={`flex flex-col p-8 rounded-2xl border ${plan.highlight ? 'border-blue-700 ring-4 ring-blue-50 relative' : 'border-slate-200'}`}>
+          {plan.highlight && (
+            <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+              Recomendado
+            </span>
+          )}
+          <div class="mb-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">{plan.name}</h3>
+            <div class="flex items-baseline mb-4">
+              <span class="text-4xl font-bold text-slate-900">{plan.price}</span>
+              {plan.price !== 'Cotizar' && <span class="text-slate-500 ml-2">/mes</span>}
+            </div>
+            <p class="text-slate-600 text-sm leading-relaxed">{plan.description}</p>
+          </div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            {plan.features.map(feature => (
+              <li class="flex items-start text-sm text-slate-600">
+                <svg class="w-5 h-5 text-blue-700 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a 
+            href="#contacto" 
+            class={`block w-full text-center py-3 rounded-md font-bold transition-colors ${plan.highlight ? 'bg-blue-700 text-white hover:bg-blue-800' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'}`}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+const stats = [
+  {
+    title: 'Certificada CPA',
+    description: 'Licencia profesional activa',
+    icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+    highlight: false
+  },
+  {
+    title: 'Formación Continua',
+    description: 'Actualización constante',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.082.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5S19.832 5.477 21 6.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
+    highlight: false
+  },
+  {
+    title: '+200 Clientes',
+    description: 'Confianza comprobada',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
+    highlight: true
+  },
+  {
+    title: 'Resultados',
+    description: 'Optimización garantizada',
+    icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
+    highlight: false
+  }
+];
+---
+
+<section id="nosotros" class="py-24 bg-white">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <!-- Lado Izquierdo: Imagen (40%) -->
+      <div class="lg:col-span-5 relative">
+        <div class="aspect-[4/5] bg-slate-100 rounded-3xl overflow-hidden shadow-2xl relative border border-slate-200">
+           <!-- Placeholder para la foto de Yoselin -->
+           <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-400 p-8 text-center italic">
+              <svg class="w-20 h-20 mb-4 opacity-20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+              </svg>
+              <span>[ Espacio para fotografía profesional de Yoselin ]</span>
+           </div>
+        </div>
+        <!-- Elemento decorativo detrás -->
+        <div class="absolute -z-10 -bottom-6 -left-6 w-full h-full bg-blue-50 rounded-3xl"></div>
+      </div>
+
+      <!-- Lado Derecho: Contenido (60%) -->
+      <div class="lg:col-span-7">
+        <h2 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-8 leading-tight">
+          Experiencia que Genera <span class="text-blue-700">Confianza</span>
+        </h2>
+        
+        <div class="space-y-6 mb-12 text-lg text-slate-600 leading-relaxed">
+          <p>
+            Soy <strong class="text-slate-900 font-semibold">Yoselin</strong>, Contadora Pública Certificada con amplia experiencia ayudando a empresas a optimizar sus finanzas y cumplir con sus obligaciones fiscales de manera eficiente.
+          </p>
+          <p>
+            Mi enfoque se basa en <strong class="text-slate-900 font-semibold">entender las necesidades específicas</strong> de cada cliente para ofrecer soluciones personalizadas que no solo cumplan con la normativa, sino que también impulsen el crecimiento empresarial.
+          </p>
+          <p>
+            He trabajado con empresas de diversos sectores, siempre con el mismo compromiso: <strong class="text-slate-900 font-semibold">transparencia, precisión y resultados medibles</strong>.
+          </p>
+        </div>
+
+        <!-- Grid de Badges -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+          {stats.map(stat => (
+            <div class={`p-6 rounded-xl border transition-all ${stat.highlight ? 'border-blue-600 bg-blue-50/30' : 'border-slate-100 bg-white shadow-sm'}`}>
+              <div class={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${stat.highlight ? 'bg-blue-600 text-white' : 'bg-blue-50 text-blue-700'}`}>
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={stat.icon} />
+                </svg>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 mb-1">{stat.title}</h4>
+              <p class="text-sm text-slate-500">{stat.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Firma Profesional -->
+        <div class="flex items-center justify-between border-t border-slate-100 pt-8">
+          <div>
+            <h3 class="text-2xl font-bold text-slate-900 font-serif">Yoselin</h3>
+            <p class="text-slate-500 font-medium">Contadora Pública Certificada • Lic. #78456</p>
+          </div>
+          <div class="hidden sm:block">
+            <div class="w-12 h-12 bg-slate-900 text-blue-400 rounded-xl flex items-center justify-center">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

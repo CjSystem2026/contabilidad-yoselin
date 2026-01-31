@@ -1,0 +1,38 @@
+---
+const navItems = [
+  { name: 'Inicio', href: '#' },
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Nosotros', href: '#nosotros' },
+  { name: 'Planes', href: '#planes' },
+];
+---
+
+<header class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-200">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <div class="flex-shrink-0 flex items-center">
+        <span class="text-2xl font-bold text-slate-900 font-serif tracking-tight uppercase">Joselyn-<span class="text-blue-700">Contable</span></span>
+      </div>
+      <nav class="hidden md:flex space-x-8">
+        {navItems.map(item => (
+          <a href={item.href} class="text-slate-600 hover:text-blue-700 font-medium transition-colors">
+            {item.name}
+          </a>
+        ))}
+      </nav>
+      <div class="hidden md:flex items-center">
+        <a href="#contacto" class="bg-slate-900 text-white px-6 py-2.5 rounded-md font-medium hover:bg-slate-800 transition-colors">
+          Contactar
+        </a>
+      </div>
+      <div class="md:hidden flex items-center">
+        <!-- Botón menú móvil (simplificado) -->
+        <button type="button" class="text-slate-600" aria-label="Menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
